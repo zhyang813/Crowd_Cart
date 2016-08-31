@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Ali Bhatti
+  - __Scrum Master__: Henry Yang
+  - __Development Team Members__: Daniel Chang, Kyle Van Vleck
 
 ## Table of Contents
 
