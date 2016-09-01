@@ -1,4 +1,4 @@
-# Project Name #
+CrowdCart
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  > CrowdCart launches first-ever crowdsourced shopping mashup!
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > Startup secures $25 Million in Series C funding let by Meritech Capital Partners.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > CrowdCart, founded in late 2016 by a team of HackReactor grads, seeks to relieve the pressures and inconveniences of modern life letting users crowdsource all of their shopping needs from getting local groceries to dropping by the mall to pick up a shirt. CrowdCart seeks to become the defacto "Uber for Shopping" and has already seen an explosion in their userbase both for users of their app as well as their "delivery team". Their unique platform allows any of their users to also join their delivery team. Uber CEO, Travis Kalanick, reports that he is "excited to see the near-term future developments of CrowdCart". The startup has gained the respect and attention of several prospective investors while other tech giants are closely watching. 
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Busy lives means no time to finish shopping lists. Sometimes you forget to pick up one or two items. CrowdCart has your back!
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Crowd sourcing your shopping car! Get items delievered directly to where you are!
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > "Whether you're lazy, outgoing, or just plain hungry - this app is for you!"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Just visit the website, sign up, and shop!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > "Best online grocery shopping helper ever! Saved me 25 hours a day for doing all the shoppings for me!" - Superman
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Just start using CrowdCart and recieving all your groceries without moving your feet an inch!
