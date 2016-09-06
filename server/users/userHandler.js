@@ -57,7 +57,10 @@ module.exports = {
           var token = jwt.encode(user, 'secret');
           res.json({
             token: token, //session token will be set on client side
+<<<<<<< 73bb7acae822773767f2b0908fedf668cbe33042
             // userid also returned.  This should be assigned to a cookie also so that it is available for future server requests and db queries.
+=======
+>>>>>>> signin and signup return userid for future queries
             userid: user['_id']
             // anything else to send back on success?
           });
@@ -88,7 +91,10 @@ module.exports = {
               var token = jwt.encode(user, 'secret');
               res.json({
                 token: token, //session token will be set on client side
+<<<<<<< 73bb7acae822773767f2b0908fedf668cbe33042
                 // userid also returned.  This should be assigned to a cookie also so that it is available for future server requests and db queries.
+=======
+>>>>>>> signin and signup return userid for future queries
                 userid: user['id']
                 // anything else to send back on success?
               });
