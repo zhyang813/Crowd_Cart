@@ -121,3 +121,52 @@ angular.module("crowdcart.services",[])
   }
 
 })
+.factory("Jobs", function($http) {
+
+  // get all jobs for specific user
+  var getJobs = function (id) {
+    console.log("getting all jobs")
+    return $http({
+      method: "GET",
+      url: "/api/jobs",
+      data: id
+    })
+    .then(function (res) {
+      return res.data
+    })
+  }
+
+  //get all lists in system
+  var getAllList = function() {
+    return $http({
+      method: "GET",
+      url: "/api/crowd"
+    })
+  }
+
+  // update job status when task complete
+  var updateJobStatus = function (listId, status) {
+    return $http({
+      method: "POST",
+      url: "api/jobs",
+      data: listId, status
+    })
+  }
+
+  // maybe mvp
+  var deleteJob = function (list) {
+    return $http({
+      method: "DELETE",
+      url: "/api/jobs",
+      data: list /*id*/
+    })
+  }
+
+  return {
+    getJobs: getJobs,
+    getAllList: getAllList,
+    updateJobStatus: updateJobStatus,
+    deleteJob: deleteJob
+  }
+
+})
