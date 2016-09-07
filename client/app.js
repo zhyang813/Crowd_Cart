@@ -52,11 +52,19 @@ angular.module("crowdcart", [
     //   authenticate: true
     // })
     .otherwise({
-      redirectTo: "lists/myLists.html"
+      redirectTo: "/mylists"
     });
 
     $httpProvider.interceptors.push('AttachTokens');
 
+})
+
+// main app controller, not inside a ng-view, hanldes signout
+.controller('AppController', function ($scope, Auth, $rootScope) {
+  $rootScope.hasSession = Auth.isAuthenticated();
+  $scope.signout = function(){
+    Auth.signout();
+  }
 })
 
 .factory('AttachTokens', function ($window) {
@@ -78,3 +86,12 @@ angular.module("crowdcart", [
 })
 
 // run directive
+.run(function($rootScope, $location, Auth){
+  $rootScope.$on('$routeChangeStart', function(event, next, current){
+    // console.log("NEXT: ", next);
+    if (next.$$route && next.$$route.authenticate && !Auth.isAuthenticated()) {
+      $location.path('/signin');
+    }
+    $rootScope.hasSession = Auth.isAuthenticated();
+  });
+});
