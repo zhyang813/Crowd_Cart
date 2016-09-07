@@ -39,6 +39,7 @@ angular.module("crowdcart.services",[])
 
   var signout = function () {
     $window.localStorage.removeItem("crowdcarttoken");
+    $window.localStorage.removeItem("crowdcartuser");
     $location.path("/signin")
   }
 

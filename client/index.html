@@ -5,7 +5,7 @@
   <head>
     <title>CrowdCart!</title>
   </head>
-  <body>
+  <body ng-controller="AppController">
     <div className="top-nav">
       <div className="top-nav-left">
         <ul>
@@ -17,7 +17,7 @@
       </div>
       <div className="top-nav-right">
         <ul>
-          <li><a href='#/logout'>Logout</a><li>
+          <li ng-if="hasSession"><a ng-click="signout()" href='#/logout'>Logout</a><li>
 <!--           this can prob be handled with ng-view -->
         </ul>
       </div>
