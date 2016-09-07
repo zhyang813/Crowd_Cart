@@ -59,7 +59,7 @@ angular.module("crowdcart", [
 
 })
 
-// main app controller, not inside a ng-view
+// main app controller, not inside a ng-view, hanldes signout
 .controller('AppController', function ($scope, Auth, $rootScope) {
   $rootScope.hasSession = Auth.isAuthenticated();
   $scope.signout = function(){
