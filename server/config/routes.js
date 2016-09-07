@@ -21,6 +21,8 @@ module.exports = function(app, express){
   app.get('/api/crowd', listHandler.getAllLists);
   // GET - getJobs (users accepted jobs)
   app.get('/api/jobs', listHandler.getJobs);
+  // POST - getJobs (user updates job when completed)
+  app.post('/api/jobs', listHandler.updateStatusJobs);
   // POST - updateStatus (reflects when jobs/lists are assigned)
   app.post('/api/status', listHandler.updateStatus);
 
