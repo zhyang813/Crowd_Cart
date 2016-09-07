@@ -13,7 +13,6 @@ angular.module("crowdcart.services",[])
       data: JSON.stringify(user)
     })
     .then(function(res) {
-      console.log(res)
       return res.data
     })
   }
@@ -78,6 +77,7 @@ angular.module("crowdcart.services",[])
 
   // posting a new lists
   var newList = function (list) {
+    console.log('creating a new list')
     return $http({
       method: "POST",
       url: "/api/lists",
