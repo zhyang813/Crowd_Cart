@@ -55,7 +55,7 @@ module.exports = {
       });
   },
 
-  // updateJobStatus method
+  // updateJobStatus method (corrected version)
   updateJobStatus: function(req, res){
     // TODO: Fill Out
   },
