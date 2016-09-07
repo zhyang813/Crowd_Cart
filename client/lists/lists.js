@@ -37,6 +37,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
+
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
