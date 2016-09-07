@@ -56,11 +56,13 @@ angular.module("crowdcart.services",[])
 
   // get all lists for specific user; since with routing to decide if that's the right meaning
   var getLists = function (id) {
-    console.log("getting all lists")
+    console.log("getting all lists for", id)
+    var user = {userid: id}
+    console.log(JSON.stringify(user))
     return $http({
       method: "GET",
-      url: "/api/lists",
-      data: id
+      url: "/api/lists/" + id,
+      data: JSON.stringify(user)
     })
     .then(function (res) {
       return res.data
