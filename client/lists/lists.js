@@ -19,12 +19,19 @@ angular.module("crowdcart.lists", [])
       .catch(function (error) {
         console.error(error);
       });
+    Lists.getAllList()
+      .then(function(allLists){
+        $scope.data.allLists = allLists;
+        console.log('ALL LISTS: ', allLists);
+      })
+      .catch(function(error){
+        console.error(error);
+      });
   };
 
   //TODO add new list method, will be attached into createnewlist.html
 
   $scope.addList = function () {
-
     $scope.list.creator_id = $scope.userid;
     console.log('list', $scope.list);
     Lists.newList($scope.list)
@@ -34,9 +41,11 @@ angular.module("crowdcart.lists", [])
       .catch(function (error) {
         console.log(error);
       });
-
-
   };
+
+  $scope.addJob = function() {
+
+  }
 
   initialize();
 

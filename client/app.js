@@ -33,11 +33,11 @@ angular.module("crowdcart", [
     })
     //All list view is not up yet
 
-    // .when('/alllists', {
-    //   templateUrl: 'lists/alllists.html',
-    //   controller: 'ListsController',
-    //   authenticate: true
-    // })
+    .when('/alllists', {
+      templateUrl: 'lists/alllists.html',
+      controller: 'ListsController',
+      authenticate: true
+    })
 
     //Jobs controller not up yet
 

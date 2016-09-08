@@ -67,7 +67,7 @@ angular.module("crowdcart.services",[])
     })
     .then(function (res) {
       console.log('lists: ', res.data)
-      return res.data
+      return res.data;
     })
   }
 
@@ -76,6 +76,10 @@ angular.module("crowdcart.services",[])
     return $http({
       method: "GET",
       url: "/api/crowd"
+    })
+    .then(function(res){
+      console.log('ALL LISTS: ', res.data);
+      return res.data;
     })
   }
 
