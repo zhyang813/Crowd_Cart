@@ -1,5 +1,6 @@
 <!-- list view for mylist -->
 <div class="lists">
+<<<<<<< 9104c29b198108d7b2f720a0ad42170f28b7407f
   <h3>MyLists</h3>
   <table class="table table-hover">
     <tr>
@@ -17,4 +18,27 @@
     </tr>
   </table>
   <span><a href='#/createnewlist' class="btn btn-primary btn-sm active">Create New List</a></span>
+=======
+  <div>myList</div>
+  <div><a href='#/createnewlist'>Create New List</a></div>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>list name</th>
+          <th>location</th>
+          <th>due in</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="list" ng-repeat="list in data.lists | filter:search" ng-click="displayDetail()">
+          <td>{{ list.name }}</td>
+          <td>{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
+          <td>{{ list.due_at }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div><a href='#/createnewlist'>Add List</a></div>
+  <pre>{{ displayList.name }}</pre>
+>>>>>>> (feat) listdetail piecing together
 </div>
