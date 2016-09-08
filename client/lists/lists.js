@@ -36,6 +36,7 @@ angular.module("crowdcart.lists", [])
   $scope.displayDetail = function() {
     // store clicked data onto rootscope
     $rootScope.displayList = this.list
+    $location.path("/listdetail")
   }
 
   //TODO add new list method, will be attached into createnewlist.html
