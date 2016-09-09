@@ -1,4 +1,4 @@
-angular.module("crowdcart.lists", [])
+angular.module("crowdcart.lists", ["angularMoment"])
 
 .controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
   

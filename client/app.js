@@ -5,6 +5,7 @@ angular.module("crowdcart", [
   "crowdcart.jobs",
   "crowdcart.services",
   "ngRoute"
+  // "angularMoment"
 ])
 
 //config/routing
