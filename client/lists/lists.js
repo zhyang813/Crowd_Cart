@@ -1,6 +1,6 @@
 angular.module("crowdcart.lists", [])
 
-.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope) {
+.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $route) {
   // Your code here
   $scope.data = {};
 
@@ -14,6 +14,11 @@ angular.module("crowdcart.lists", [])
   var initialize = function () {
     // console.log('userId: ',$scope.userid)
     // console.log($rootScope)
+
+    console.log($routeParams)
+    console.log($routeParams.listid)
+    console.log($route.current.params.listid)
+    console.log($scope)
 
     Lists.getLists($scope.userid)
       .then(function (lists) {
@@ -36,10 +41,11 @@ angular.module("crowdcart.lists", [])
 
   };
 
-  $scope.displayDetail = function() {
-    // store clicked data onto rootscope
+  // $scope.newListId = $routeParams.listid
+
+  $scope.displayDetail = function(listid) {
+    $location.path("/listdetail/" + listid)
     $rootScope.displayList = this.list
-    $location.path("/listdetail")
   }
 
   //TODO add new list method, will be attached into createnewlist.html
@@ -48,7 +54,7 @@ angular.module("crowdcart.lists", [])
     $scope.list.creator_id = $scope.userid;
     // Defaulting deliverer_id to empty string
     $scope.list.deliverer_id = '';
-    console.log('list', $scope.list);
+    // console.log('list', $scope.list);
     Lists.newList($scope.list)
       .then(function () {
         console.log('rediction');
