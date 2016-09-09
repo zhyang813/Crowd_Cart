@@ -6,3 +6,17 @@
   display: flex;
   justify-content: space-between;
 }
+
+.top-logo {
+  text-align: center;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+}
+
+.top-nav-left, .top-nav-right {
+  display: inline-flex;
+}
