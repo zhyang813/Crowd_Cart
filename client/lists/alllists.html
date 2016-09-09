@@ -7,12 +7,12 @@
       <tr>
         <th>List Name</th>
         <th>Location</th>
-        <th>Due In</th>
+        <th>Due</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="list in data.allLists | filter:search">
+      <tr ng-repeat="list in data.allLists | filter:search" ng-click="displayDetail(this.list._id)">
         <td>{{ list.name }}</td>
         <td>{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
         <td><span am-time-ago="list.due_at"></span></td>

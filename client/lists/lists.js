@@ -94,10 +94,12 @@ angular.module("crowdcart.lists", ["angularMoment"])
       });
   }
 
-
   initialize();
 
 });
+
+
+
 
 // .controller(ListsController, function($scope) {
 

@@ -12,7 +12,6 @@ angular.module("crowdcart.jobs", [])
     Jobs.getJobs($scope.userid)
       .then(function(jobs){
         $scope.data.jobs = jobs;
-        console.log('JOBS: ', jobs);
       })
       .catch(function(error){
         console.log('ERROR: ', error);

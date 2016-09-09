@@ -5,7 +5,7 @@
   <head>
     <title>CrowdCart!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.3/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller="AppController">
     <div className="top-nav">
@@ -23,17 +23,12 @@
 
 <!--           this can prob be handled with ng-view -->
 
-
-
-
-    <!-- TESTING BOOTSTRAP BELOW -->
-
-
-    <!-- END OF TESTING BOOTSTRAP -->
-
     <h1>CrowdCart!</h1>
     <div ng-view></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+<!--     load ui bootstraop below agular lib to prevent errors -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.1.3/ui-bootstrap-tpls.min.js"></script>
     
     <!-- load momentJS (required for angular-moment) -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>

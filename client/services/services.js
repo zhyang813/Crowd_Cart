@@ -147,7 +147,6 @@ angular.module("crowdcart.services",[])
 
   // get all jobs for specific user
   var getJobs = function (id) {
-    console.log("getting all jobs")
     var user = {userid: id}
     return $http({
       method: "GET",

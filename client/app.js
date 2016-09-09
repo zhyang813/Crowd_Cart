@@ -4,7 +4,8 @@ angular.module("crowdcart", [
   "crowdcart.lists",
   "crowdcart.jobs",
   "crowdcart.services",
-  "ngRoute"
+  "ngRoute",
+  "ui.bootstrap"
   // "angularMoment"
 ])
 
