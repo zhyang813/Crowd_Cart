@@ -37,6 +37,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
+    //Get all lists the do not have deliverer and do not belong to user
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
