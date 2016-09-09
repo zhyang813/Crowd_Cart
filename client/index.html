@@ -8,22 +8,25 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller="AppController">
-    <div className="top-nav">
-      <div className="top-nav-right">
-        <span><div ng-if="hasSession">
-          <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Logout</a>
-        </div></span>
+    <div class="top-nav">
+      <div class="top-logo">
+        <img src="crowdcartlogov2.png" />
       </div>
-      <div className="top-nav-left">
-        <hr />
+      <div class="top-nav-left">
         <span><a href='#/mylists' class="btn btn-primary btn-lg active">MyLists</a></span>
         <span><a href='#/alllists' class="btn btn-primary btn-lg active">AllLists</a></span>
         <span><a href='#/myjobs' class="btn btn-primary btn-lg active">MyJobs</a></span>
       </div>
+      <div class="top-nav-right">
+        <span><div ng-if="hasSession">
+          <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Logout</a>
+        </div></span>
+      </div>
+    </div>
 
 <!--           this can prob be handled with ng-view -->
 
-    <h1>CrowdCart!</h1>
+
     <div ng-view></div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 
