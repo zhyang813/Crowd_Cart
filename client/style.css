@@ -21,12 +21,12 @@
   display: inline-flex;
 }
 
-.signup-outer {
+.signup-outer, .signin-outer {
   background-color: steelblue;
   padding: 20px;
   text-align: center;
 }
 
-.signup-field {
+.signup-field, .signin-field {
   padding-bottom: 3px;
 }
