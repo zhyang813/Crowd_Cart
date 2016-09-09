@@ -20,7 +20,6 @@
           <td>{{ list.due_at | date: "short"}}</td>
           <!-- two options -->
           <td><span am-time-ago="list.due_at"></span></td>
-
           <td><span>{{ list.due_at | amDifference : null : "hours" }} hours</span></td>
           <td ng-if="!list.deliverer_id">Open</td>
           <td ng-if="!!list.deliverer_id">In Work!</td>
