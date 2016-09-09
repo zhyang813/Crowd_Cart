@@ -8,7 +8,8 @@
           <th>list name</th>
           <th>location</th>
           <th>due on</th>
-          <!-- <th>due in</th> -->
+          <th>due in</th>
+          <th>due in</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -17,8 +18,10 @@
           <td>{{ list.name }}</td>
           <td>{{ list.delivery_address.city }}, {{ list.delivery_address.state }}</td>
           <td>{{ list.due_at | date: "short"}}</td>
-          <!-- doesn't work yet; -->
-          <!-- <td>{{ timeUntil(list.due_at) | date: "short" }}</td> -->
+          <!-- two options -->
+          <td><span am-time-ago="list.due_at"></span></td>
+
+          <td><span>{{ list.due_at | amDifference : null : "hours" }} hours</span></td>
           <td ng-if="!list.deliverer_id">Open</td>
           <td ng-if="!!list.deliverer_id">In Work!</td>
         </tr>
