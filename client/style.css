@@ -30,3 +30,7 @@
 .signup-field, .signin-field {
   padding-bottom: 3px;
 }
+
+.contents-container {
+  padding: 10px;
+}
