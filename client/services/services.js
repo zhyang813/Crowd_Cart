@@ -57,17 +57,28 @@ angular.module("crowdcart.services",[])
 
   // get all lists for specific user; since with routing to decide if that's the right meaning
   var getLists = function (id) {
-    console.log("getting all lists for", id)
+    // console.log("getting all lists for", id)
     var user = {userid: id}
-    console.log(JSON.stringify(user))
+    // console.log(JSON.stringify(user))
     return $http({
       method: "GET",
-      url: "/api/lists/" + id,
-      data: JSON.stringify(user)
+      url: "/api/lists/" + id
+      // data: JSON.stringify(user)
     })
-    .then(function (res) {
-      console.log('lists: ', res.data)
+    .then(function(res) {
+      // console.log('lists: ', res.data)
       return res.data;
+    })
+  }
+
+  // get one list when given listid
+  var getOneList = function(listid) {
+    return $http({
+      method: "GET",
+      url: "/api/list/" + listid
+    })
+    .then(function(res) {
+      return res.data
     })
   }
 
@@ -78,7 +89,7 @@ angular.module("crowdcart.services",[])
       url: "/api/crowd"
     })
     .then(function(res){
-      console.log('ALL LISTS: ', res.data);
+      // console.log('ALL LISTS: ', res.data);
       return res.data;
     })
   }
@@ -124,6 +135,7 @@ angular.module("crowdcart.services",[])
   return {
     getLists: getLists,
     getAllList: getAllList,
+    getOneList: getOneList,
     newList: newList,
     updateStatus: updateStatus,
     newList: newList,

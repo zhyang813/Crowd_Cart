@@ -42,10 +42,11 @@ angular.module("crowdcart", [
       controller: 'JobsController',
       authenticate: true
     })
-    .when('/listdetail', {
+    .when('/listdetail/:listid', {
       templateUrl: 'lists/listdetail.html',
-      controller: 'ListsController',
-      authenticate: true
+      controller: 'ListsController'
+      // // authentication removed to be sharable link
+      // authenticate: true
     })
     // .when('/findjobs', {
     //   templateUrl: 'jobs/findjobs.html',

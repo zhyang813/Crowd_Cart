@@ -1,12 +1,17 @@
 angular.module("crowdcart.lists", [])
 
-.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope) {
-  // Your code here
+.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
+  
+  // storage objs
   $scope.data = {};
-
   $scope.list = {};
   $scope.list.delivery_address = {};
   $scope.list.items = [];
+
+  // date
+  $scope.timeUntil = function (time) {
+    return new Date(time) - new Date()
+  }
 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
@@ -14,6 +19,14 @@ angular.module("crowdcart.lists", [])
   var initialize = function () {
     // console.log('userId: ',$scope.userid)
     // console.log($rootScope)
+
+    // is routePararms exists it means directed here via URL
+    if ($routeParams.listid) {
+      Lists.getOneList($routeParams.listid)
+        .then(function (list) {
+          $scope.displayList = list
+        })
+    }
 
     Lists.getLists($scope.userid)
       .then(function (lists) {
@@ -36,10 +49,9 @@ angular.module("crowdcart.lists", [])
 
   };
 
-  $scope.displayDetail = function() {
-    // store clicked data onto rootscope
-    $rootScope.displayList = this.list
-    $location.path("/listdetail")
+  $scope.displayDetail = function(listid) {
+    // simple redirect
+    $location.path("/listdetail/" + listid)
   }
 
   //TODO add new list method, will be attached into createnewlist.html
@@ -48,7 +60,7 @@ angular.module("crowdcart.lists", [])
     $scope.list.creator_id = $scope.userid;
     // Defaulting deliverer_id to empty string
     $scope.list.deliverer_id = '';
-    console.log('list', $scope.list);
+    // console.log('list', $scope.list);
     Lists.newList($scope.list)
       .then(function () {
         console.log('rediction');
@@ -76,7 +88,6 @@ angular.module("crowdcart.lists", [])
         console.log(error);
       });
   }
-
 
   initialize();
 
