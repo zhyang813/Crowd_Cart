@@ -17,10 +17,10 @@
         <span><a href='#/alllists' class="btn btn-primary btn-lg active">AllLists</a></span>
         <span><a href='#/myjobs' class="btn btn-primary btn-lg active">MyJobs</a></span>
       </div>
-      <div class="top-nav-right">
-        <span><div ng-if="hasSession">
+      <div class="top-nav-right" ng-if="hasSession">
+        <span>
           <a ng-click="signout()" href='#/logout' class="btn pull-right btn-primary btn-default active">Logout</a>
-        </div></span>
+        </span>
       </div>
     </div>
 

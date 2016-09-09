@@ -20,3 +20,13 @@
 .top-nav-left, .top-nav-right {
   display: inline-flex;
 }
+
+.signup-outer {
+  background-color: steelblue;
+  padding: 20px;
+  text-align: center;
+}
+
+.signup-field {
+  padding-bottom: 3px;
+}
