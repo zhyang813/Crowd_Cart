@@ -1,12 +1,17 @@
 angular.module("crowdcart.lists", [])
 
-.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $route) {
-  // Your code here
+.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
+  
+  // storage objs
   $scope.data = {};
-
   $scope.list = {};
   $scope.list.delivery_address = {};
   $scope.list.items = [];
+
+  // date
+  $scope.timeUntil = function (time) {
+    return new Date(time) - new Date()
+  }
 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
@@ -83,7 +88,6 @@ angular.module("crowdcart.lists", [])
         console.log(error);
       });
   }
-
 
   initialize();
 
