@@ -15,10 +15,13 @@ angular.module("crowdcart.lists", [])
     // console.log('userId: ',$scope.userid)
     // console.log($rootScope)
 
-    console.log($routeParams)
-    console.log($routeParams.listid)
-    console.log($route.current.params.listid)
-    console.log($scope)
+    // is routePararms exists it means directed here via URL
+    if ($routeParams.listid) {
+      Lists.getOneList($routeParams.listid)
+        .then(function (list) {
+          $scope.displayList = list
+        })
+    }
 
     Lists.getLists($scope.userid)
       .then(function (lists) {
@@ -41,11 +44,9 @@ angular.module("crowdcart.lists", [])
 
   };
 
-  // $scope.newListId = $routeParams.listid
-
   $scope.displayDetail = function(listid) {
+    // simple redirect
     $location.path("/listdetail/" + listid)
-    $rootScope.displayList = this.list
   }
 
   //TODO add new list method, will be attached into createnewlist.html

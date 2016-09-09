@@ -73,13 +73,12 @@ angular.module("crowdcart.services",[])
 
   // get one list when given listid
   var getOneList = function(listid) {
-    console.log("listid:", listid)
     return $http({
       method: "GET",
       url: "/api/list/" + listid
     })
     .then(function(res) {
-      console.log("res:", res)
+      return res.data
     })
   }
 
@@ -136,6 +135,7 @@ angular.module("crowdcart.services",[])
   return {
     getLists: getLists,
     getAllList: getAllList,
+    getOneList: getOneList,
     newList: newList,
     updateStatus: updateStatus,
     newList: newList,
