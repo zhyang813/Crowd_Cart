@@ -93,6 +93,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
       });
   }
 
+
   initialize();
 
 });
