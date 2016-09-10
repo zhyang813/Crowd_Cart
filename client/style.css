@@ -4,10 +4,10 @@ html {
 
 
 body {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 17%;
+  margin-right: 17%;
   margin-top: 1%;
-  /*background-color: white;*/
+  opacity: 0.95;
 }
 
 .items, .delivery-address {
@@ -49,4 +49,9 @@ body {
 
 .top-nav-button {
   margin: 2px;
+}
+
+#map_canvas {
+  height: 500px;
+  width: 100%;
 }
