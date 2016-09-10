@@ -5,7 +5,6 @@ angular.module("crowdcart.jobs", [])
   $scope.data = {};
 
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
-
   //get all the jobs user took
   //populate the myjobs view
    $scope.getJobs = function() {

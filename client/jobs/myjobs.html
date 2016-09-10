@@ -12,10 +12,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="job in data.jobs | filter:search" ng-click="displayJobDetail(this.job._id)">
-        <td>{{ job.name }}</td>
-        <td>{{ job.delivery_address.city }}, {{ job.delivery_address.state }}</td>
-        <td><span am-time-ago="list.due_at"></span></td>
+      <tr ng-repeat="job in data.jobs | filter:search" >
+      <!-- this is lame way to do it to prevent clicking delete to show details -->
+        <td ng-click="displayJobDetail(this.job._id)">{{ job.name }}</td>
+        <td ng-click="displayJobDetail(this.job._id)">{{ job.delivery_address.city }}, {{ job.delivery_address.state }}</td>
+        <td ng-click="displayJobDetail(this.job._id)"><span am-time-ago="job.due_at"></span></td>
         <td><a ng-click="deleteJob(job); getJobs();" class="btn btn-primary btn-sm active">Delete Job</a></td>
       </tr>
     </tbody>
