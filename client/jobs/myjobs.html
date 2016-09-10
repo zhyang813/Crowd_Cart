@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="job in data.jobs | filter:search">
+      <tr ng-repeat="job in data.jobs | filter:search" ng-click="displayJobDetail(this.job._id)">
         <td>{{ job.name }}</td>
         <td>{{ job.delivery_address.city }}, {{ job.delivery_address.state }}</td>
         <td><span am-time-ago="list.due_at"></span></td>

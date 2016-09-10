@@ -18,6 +18,12 @@ angular.module("crowdcart.jobs", [])
       })
   }
 
+  $scope.displayJobDetail = function(listid) {
+    // simple redirect
+    console.log(listid)
+    $location.path("/listdetail/" + listid)
+  }
+
 
    //Delete a job from myjobs view,
    //refresh the page to reflect the change,
