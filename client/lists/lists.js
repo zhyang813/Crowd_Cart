@@ -72,12 +72,11 @@ angular.module("crowdcart.lists", ["angularMoment"])
         zip_code: $scope.zip
       }
     }
-    console.log("LIST: ", $scope.list);
-    console.log("DATETYPE: ", typeof $scope.list.due_at);
+    $scope.list.due_at.setHours($scope.list.due_hour);
+    $scope.list.due_at.setMinutes($scope.list.due_minute);
     Lists.newList($scope.list)
       .then(function () {
-        // console.log('rediction');
-        $location.path('/alllist.html');
+        $location.path('/mylists');
       })
       .catch(function (error) {
         console.log(error);
