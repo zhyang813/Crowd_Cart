@@ -72,6 +72,8 @@ angular.module("crowdcart.lists", ["angularMoment"])
         zip_code: $scope.zip
       }
     }
+    console.log("LIST: ", $scope.list);
+    console.log("DATETYPE: ", typeof $scope.list.due_at);
     Lists.newList($scope.list)
       .then(function () {
         // console.log('rediction');
