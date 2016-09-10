@@ -1,7 +1,7 @@
 angular.module('crowdcart.auth', [])// make an auth module
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
-  
+
   $scope.user = {};
   $scope.user.address = {};
   $scope.user.name = {};
@@ -12,6 +12,7 @@ angular.module('crowdcart.auth', [])// make an auth module
         $window.localStorage.setItem('crowdcarttoken', data.token)
         // saving username to localstorage
         $window.localStorage.setItem('crowdcartuser', data.userid);
+        $window.localStorage.setItem('crowdcartuserinfo', data);
         $location.path('/mylists');
       })
       .catch(function (error) {

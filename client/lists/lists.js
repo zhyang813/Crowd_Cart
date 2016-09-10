@@ -15,6 +15,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
+  $scope.user = $window.localStorage.getItem('crowdcartuserinfo');
 
   var initialize = function () {
     // console.log('userId: ',$scope.userid)
@@ -37,7 +38,6 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
-    //Get all lists the do not have deliverer and do not belong to user
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
@@ -93,6 +93,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.log(error);
       });
   }
+
 
   initialize();
 
