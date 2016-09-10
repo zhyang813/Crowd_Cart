@@ -120,6 +120,18 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
     //Convert address objects into string and save into locations
     $scope.data.allLists.forEach(function(item) {
+      if(!item.delivery_address.street) {
+        item.delivery_address.street = '';
+      }
+      if(!item.delivery_address.city) {
+        item.delivery_address.city = '';
+      }
+      if(!item.delivery_address.state) {
+        item.delivery_address.state = '';
+      }
+      if(!item.delivery_address.zip_code) {
+        item.delivery_address.zip_code = '';
+      }
       locations.push(item.delivery_address.street + ' , ' + item.delivery_address.city + ' , ' + item.delivery_address.state + ' ' + item.delivery_address.zip_code)
     });
 
