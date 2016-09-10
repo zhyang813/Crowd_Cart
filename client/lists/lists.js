@@ -44,11 +44,11 @@ angular.module("crowdcart.lists", ["angularMoment"])
           //Only showing the list that has not deliverer, and those that do not belong to user, and not overdue
           return !list.deliverer_id && list.creator_id !== $scope.userid && new Date(list.due_at) >= new Date();
         });
-        // console.log('ALL LISTS: ', allLists);
       })
       .catch(function(error){
         console.error(error);
       });
+
 
   };
 
@@ -112,9 +112,93 @@ angular.module("crowdcart.lists", ["angularMoment"])
   }
 
 
+  //Google Map initializer
+  $scope.mapInitialize = function() {
+
+
+    var locations = [];
+
+    //Convert address objects into string and save into locations
+    $scope.data.allLists.forEach(function(item) {
+      locations.push(item.delivery_address.street + ' , ' + item.delivery_address.city + ' , ' + item.delivery_address.state + ' ' + item.delivery_address.zip_code)
+    });
+
+    //console.log('inside map',$scope.data.allLists);
+
+
+    //Geocoder for converting address string into coordicates
+    //set up map object with some options
+    var geocoder;
+    var map;
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(-34.397, 150.644);
+
+
+    var myOptions = {
+      zoom: 4,
+      center: latlng,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+      },
+      navigationControl: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+
+    //Method for converting address and make a marker on map
+    var convertAdd = function (address, name) {
+      if (geocoder) {
+      geocoder.geocode({
+        'address': address
+      }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+            map.setCenter(results[0].geometry.location);
+
+            var infowindow = new google.maps.InfoWindow({
+              content: '<p><b>'+ name + '</b></p><p><b>' + address + '</b></p>',
+              size: new google.maps.Size(150, 50)
+            });
+
+            var marker = new google.maps.Marker({
+              position: results[0].geometry.location,
+              map: map,
+              title: name
+            });
+
+
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(map, marker);
+            });
+
+          } else {
+            console.log("No results found");
+          }
+        } else {
+          console.log("Geocode was not successful for the following reason: " + status);
+        }
+      });
+      }
+    }
+
+
+    //Iterate over the list of locations and apply convert address on each one
+    for (var i = 0; i < locations.length; i++) {
+      convertAdd(locations[i], $scope.data.allLists[i].name);
+    }
+}
+
   initialize();
 
+  //Google map got initialize, set timeout for wating the list data to be loaded
+  google.maps.event.addDomListener(window, 'load', setTimeout($scope.mapInitialize, 500));
 })
+
+
 // Date Picker ui-bootstrap controller
 .controller('DatepickerPopupDemoCtrl', function ($scope) {
   $scope.today = function() {
