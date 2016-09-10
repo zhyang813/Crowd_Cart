@@ -1,35 +1,62 @@
 <div class='newlist contents-container'>
-  <div>Create New List Page</div>
+  <div><h1>Create New List Page</h1></div>
 
   <!-- inputs here -->
   <form name="addListForm" >
     <input type="text" ng-model="list.name" placeholder="Enter the list name here">
-    <div>Delivery Address</div>
+    <div><h3>Delivery Address</h3><a ng-click="" class="btn btn-primary btn-sm active">Use default address</a></div>
+
+    <div>
     <input type="text" ng-model="list.delivery_address.street" placeholder="Enter your street here">
     <input type="text" ng-model="list.delivery_address.city" placeholder="Enter your city here">
     <input type="text" ng-model="list.delivery_address.state" placeholder="Enter your state here">
     <input type="text" ng-model="list.delivery_address.zip_code" placeholder="Enter your zip code here">
-    <div>Details</div>
+    </div>
+
+   <!--  <div>
+    <input type="text" ng-model="list.delivery_address.street" placeholder="Enter your street here">
+    <input type="text" ng-model="list.delivery_address.city" placeholder="Enter your city here">
+    <input type="text" ng-model="list.delivery_address.state" placeholder="Enter your state here">
+    <input type="text" ng-model="list.delivery_address.zip_code" placeholder="Enter your zip code here">
+    </div> -->
+
+    <div><h3>Details</h3></div>
     <input type="number" ng-model="list.offer_price" placeholder="Enter your offer price here">
     <input type="Date" ng-model="list.due_at" placeholder="Enter your expected due date here">
-    <a href="#/mylists">
-      <input type="button" value="Submit">
-    </a>
+
+
     <!-- Add item here -->
-    <div>Item</div>
+    <div><h3>Item</h3></div>
 
       <form name="addItemForm">
         <input type="text" ng-model="item.item_name" placeholder="Enter the item name here">
         <input type="number" ng-model="item.quantity" placeholder="Enter the quantity here">
         <input type="number" ng-model="item.unite_price" placeholder="Enter the unit price here">
-        <button ng-click='list.items.push(item); item = {};'>Add more items</button>
+        <a ng-click="list.items.push(item); item = {};" class="btn btn-primary btn-sm active">Add More Items</a>
       </form>
 
 
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="i in list.items">
+            <td>{{ i.item_name }}</td>
+            <td>{{ i.quantity}}</td>
+            <td>$ {{ i.unite_price}}</td>
+            <td>$ {{ i.unite_price * i.quantity}}</td>
 
-      <div>{{list.items | json}}</div>
-
-    <button ng-click='addList()'>Submit List</button>
+            <td><a ng-click="list.items.splice($index, 1)" class="btn btn-primary btn-sm active">Remove Item</a></td>
+          </tr>
+        </tbody>
+      </table>
+    <a ng-click="addList()" class="btn btn-primary btn-sm active">Submit List</a>
   </form>
 
 
