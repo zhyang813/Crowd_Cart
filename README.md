@@ -59,7 +59,8 @@ npm install
 
 ### Tasks
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the waffle.io issue [here](https://waffle.io/Dancing-Penguin/Dancing-Penguin)
+View the project planning docs [here](https://docs.google.com/spreadsheets/d/17VOjBqNdDPgaP92LqQ3HTSedvwyuyb4FPGGdkN2sSXo/edit#gid=454523850)
 
 
 ## Contributing
