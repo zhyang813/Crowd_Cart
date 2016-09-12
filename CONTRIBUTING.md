@@ -36,7 +36,7 @@
 Use github’s interface to make a fork of the repo, then add that repo as an upstream remote:
 
 ```
-git remote add upstream https://github.com/remotebeta-labs/<NAME_OF_REPO>.git
+git remote add upstream https://github.com/Dancing-Penguin/Dancing-Penguin.git
 ```
 
 ### Cut a namespaced feature branch from master
@@ -149,8 +149,8 @@ Thanks for contributing!
 ### Guidelines
 
 1. Uphold the current code standard:
-    - Keep your code [DRY][].
-    - Apply the [boy scout rule][].
+    - Keep your code [DRY][https://en.wikipedia.org/wiki/Don%27t_repeat_yourself].
+    - Apply the [boy scout rule][http://deviq.com/boy-scout-rule/].
     - Follow [STYLE-GUIDE.md](STYLE-GUIDE.md)
 1. Run the [tests][] before submitting a pull request.
 1. Tests are very, very important. Submit tests if your pull request contains
