@@ -50,6 +50,8 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   };
 
+
+  //display list detail which uses list detail page
   $scope.displayDetail = function(listid) {
     // simple redirect passing over listid in URL
     $location.path("/listdetail/" + listid)
@@ -109,11 +111,10 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   //Google Map initializer
   $scope.mapInitialize = function() {
-    //console.log('alllist',  $scope.data.allLists)
 
     var locations = [];
 
-    //Convert address objects into string and save into locations
+    //Convert address objects into strings and save into locations
 
     $scope.data.allLists.forEach(function(item) {
       if(!item.delivery_address) {
@@ -182,7 +183,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
     }
 
 
-    //Iterate over the list of locations and apply convert address on each one
+    //Iterate over the list of locations and apply converting address on each one
     for (var i = 0; i < locations.length; i++) {
       convertAdd(locations[i], $scope.data.allLists[i].name);
     }
@@ -190,7 +191,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
 
   initialize();
 
-  //Google map got initialize, set timeout for wating the list data to be loaded
+  //Google map got initialize, set timeout to wait for the list data to be loaded
   google.maps.event.addDomListener(window, 'load', setTimeout($scope.mapInitialize, 500));
 })
 

@@ -7,7 +7,7 @@ angular.module("crowdcart.jobs", [])
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
   //get all the jobs user took
   //populate the myjobs view
-   $scope.getJobs = function() {
+  $scope.getJobs = function() {
     Jobs.getJobs($scope.userid)
       .then(function(jobs){
         $scope.data.jobs = jobs;
@@ -15,19 +15,20 @@ angular.module("crowdcart.jobs", [])
       .catch(function(error){
         console.log('ERROR: ', error);
       })
-  }
+   }
 
+  //display job detail which uses list detail page
   $scope.displayJobDetail = function(listid) {
     // simple redirect
     console.log(listid)
     $location.path("/listdetail/" + listid)
   }
 
-   //Delete a job from myjobs view,
-   //refresh the page to reflect the change,
-   //redirect to all lists page when there is no job left
+  //Delete a job from myjobs view,
+  //refresh the page to reflect the change,
+  //redirect to all lists page when there is no job left
 
-   $scope.deleteJob = function(list) {
+  $scope.deleteJob = function(list) {
     list.deliverer_id = '';
     Lists.updateList(list)
       .then(function () {
@@ -45,5 +46,5 @@ angular.module("crowdcart.jobs", [])
   // Initialize Get Jobs Once
   $scope.getJobs();
 
-});
+  });
 
