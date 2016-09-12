@@ -6,7 +6,6 @@ angular.module("crowdcart", [
   "crowdcart.services",
   "ngRoute",
   "ui.bootstrap"
-  // "angularMoment"
 ])
 
 //config/routing
@@ -50,11 +49,7 @@ angular.module("crowdcart", [
       // // authentication removed to be sharable link
       // authenticate: true
     })
-    // .when('/findjobs', {
-    //   templateUrl: 'jobs/findjobs.html',
-    //   //controller: '',
-    //   authenticate: true
-    // })
+
     .otherwise({
       redirectTo: "/mylists"
     });
