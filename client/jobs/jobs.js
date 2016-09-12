@@ -23,7 +23,6 @@ angular.module("crowdcart.jobs", [])
     $location.path("/listdetail/" + listid)
   }
 
-
    //Delete a job from myjobs view,
    //refresh the page to reflect the change,
    //redirect to all lists page when there is no job left

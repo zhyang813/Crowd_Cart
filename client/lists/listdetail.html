@@ -1,8 +1,10 @@
 <!-- individual list item with details -->
 <div class="listdetail contents-container">
+  <!-- header has name, offer price and due_at -->
   <h2 class="detail-header"><span>{{ displayList.name }}</span><span>${{ displayList.offer_price }}</span><span>Due <span am-time-ago="displayList.due_at"></span></span></h2>
 
   <div class="delivery-address">
+    <!-- ui-bootstrap expandable accordion -->
     <uib-accordion>
       <div uib-accordion-group class="panel-default" is-open="status.open">
         <uib-accordion-heading>

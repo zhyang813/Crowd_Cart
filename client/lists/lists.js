@@ -1,13 +1,12 @@
 angular.module("crowdcart.lists", ["angularMoment"])
 
-.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams, $interval) {
+.controller("ListsController", function ($scope, Lists, $window, $location, $rootScope, $routeParams) {
 
   // storage objs
   $scope.data = {};
   $scope.list = {};
   $scope.list.delivery_address = {};
   $scope.list.items = [];
-
 
   // store userid into local storage (same level as auth token)
   $scope.userid = $window.localStorage.getItem('crowdcartuser');
@@ -17,12 +16,10 @@ angular.module("crowdcart.lists", ["angularMoment"])
   $scope.zip = $window.localStorage.getItem('crowdcartuserzip');
 
   var initialize = function () {
-    // console.log('userId: ',$scope.userid)
-    // console.log($rootScope)
-    // console.log('user', $scope.city)
 
-    // is routePararms exists it means directed here via URL
+    // if routePararms exists it means listid is in URL
     if ($routeParams.listid) {
+      // get list data and store on scope
       Lists.getOneList($routeParams.listid)
         .then(function (list) {
           $scope.displayList = list
@@ -38,6 +35,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
         console.error(error);
       });
 
+    // Get all lists
     Lists.getAllList()
       .then(function(allLists){
         $scope.data.allLists = allLists.filter(function(list){
@@ -53,7 +51,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
   };
 
   $scope.displayDetail = function(listid) {
-    // simple redirect
+    // simple redirect passing over listid in URL
     $location.path("/listdetail/" + listid)
   }
 
@@ -83,6 +81,7 @@ angular.module("crowdcart.lists", ["angularMoment"])
       });
   };
 
+  // delete list
   $scope.deleteList = function(listid, idx) {
     Lists.deleteList(listid)
       .then(function () {
